@@ -1,0 +1,232 @@
+@font-face {
+    font-family: "Barlow Condensed";
+    src: url();
+}
+
+@font-face {
+    font-family: "Host Grotesk";
+    src: url(./font/HostGrotesk-VariableFont_wght.ttf);
+}
+
+:root {
+    --base-100: #e6e6e6;
+    --base-200: #0004eb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--base-100);
+    color: var(--base-200);
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-family: "Host Grotesk", sans-serif;
+    font-size: clamp(3rem, 5vw, 7rem);
+    font-weight: 900;
+    line-height: 0.8;
+}
+
+a {
+    text-decoration: none;
+    color: var(--base-200);
+    font-family: "Host Grotesk";
+    font-size: 1.125rem;
+    font-weight: 450;
+    line-height: 0.9;
+}
+
+/* Directors count */
+.nav-count {
+    font-size: 0.65em;
+    vertical-align: super;
+    margin-left: 0.15em;
+    font-weight: 500;
+}
+
+/* BACKDROP */
+.navbar-backdrop,
+.navbar-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100svh;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* CENTER PANEL */
+.navbar-background,
+.navbar-items {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    min-width: 720px;
+    aspect-ratio: 16 / 9;
+    will-change: width, height;
+}
+
+.navbar-background {
+    background-color: var(--base-100);
+    z-index: 0;
+}
+
+.navbar-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 2;
+}
+
+/* LOGO */
+.navbar-logo {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    padding: 2.5rem;
+    pointer-events: all;
+    z-index: 2;
+}
+
+.navbar-logo.navbar-logo-pinned {
+    bottom: unset;
+    top: -0.25rem;
+}
+
+.navbar-logo img {
+    object-fit: contain;
+}
+
+/* LINKS */
+.navbar-links {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-links:nth-child(1) {
+    padding: 2.5rem 5rem 0 2.5rem;
+}
+
+.navbar-links:nth-child(2) {
+    padding: 2.5rem 2.5rem 0 5rem;
+}
+
+/* MARQUEE */
+.scroll-marquee {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--base-200);
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.scroll-track {
+    display: flex;
+    gap: 1.25rem;
+    width: max-content;
+    animation: marquee 14s linear infinite;
+}
+
+.scroll-track span {
+    color: var(--base-100);
+    font-family: "Host Grotesk", sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 0.6rem 0;
+}
+
+/* SECTIONS */
+section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+}
+
+.hero {
+    padding: 2.5rem 0;
+    margin-top: 200svh;
+}
+
+.about {
+    height: 100svh;
+}
+
+.hero h1,
+.about h1 {
+    width: 50%;
+}
+
+/* MARQUEE ANIMATION */
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* MOBILE */
+@media (max-width: 720px) {
+    .navbar-background,
+    .navbar-items {
+        min-width: 100%;
+    }
+
+    .navbar-items,
+    .navbar-links {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.5rem;
+    }
+
+    .navbar-items {
+        padding: 2rem;
+    }
+
+    .navbar-links {
+        padding: 0 !important;
+    }
+
+    .navbar-logo,
+    .navbar-logo.navbar-logo-pinned {
+        left: 0;
+        transform: none;
+    }
+
+    .hero {
+        height: 100svh;
+        margin-top: 0;
+    }
+
+    .hero h1,
+    .about h1 {
+        padding: 2.5rem;
+        width: 100%;
+    }
+}
