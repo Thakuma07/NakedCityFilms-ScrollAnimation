@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NakedCity Scroll Animation | thakuma.dev</title>
+
+    <link rel="stylesheet" href="./styles.css" />
+
+    <!-- GSAP -->
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/Flip.min.js"></script>
+
+    <!-- LENIS -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+</head>
+<body>
+
+    <div class="navbar-backdrop">
+        <div class="navbar-img">
+            <video
+                src="./assets/video.mp4"
+                autoplay
+                loop
+                muted
+                playsinline
+            ></video>
+        </div>
+        <div class="navbar-background"></div>
+    </div>
+
+    <div class="navbar-items">
+
+        <div class="navbar-links">
+            <a href="#">Director <sup class="nav-count">1</sup></a>
+            <a href="#">Studio</a>
+        </div>
+
+        <div class="navbar-links">
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div class="navbar-logo">
+            <a href="#">
+                <img src="./assets/logo.svg" alt="Naked City Logo" />
+            </a>
+        </div>
+
+        <!-- CONTINUOUS MARQUEE -->
+        <div class="scroll-marquee">
+            <div class="scroll-track">
+                <span>scroll down ·</span>
+                <span>scroll down ·</span>
+                <span>scroll down ·</span>
+                <span>scroll down ·</span>
+                <span>scroll down ·</span>
+                <span>scroll down ·</span>
+            </div>
+        </div>
+
+    </div>
+
+    <section class="hero">
+        <h1>
+            We're Naked City – a New York director led, production company.
+            Built for collaboration and partnership.
+        </h1>
+    </section>
+
+    <section class="about">
+        <h1>
+            Inspired by Jules Dassin's Naked City,
+            we know a city of eight million holds
+            endless stories. Our job is to cut through
+            the noise and get to the naked truth.
+        </h1>
+    </section>
+
+    <script src="./script.js"></script>
+</body>
+</html>
