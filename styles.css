@@ -1,11 +1,11 @@
 @font-face {
-    font-family: "Barlow Condensed";
-    src: url();
+    font-family: "Host Grotesk";
+    src: url(./font/HostGrotesk-VariableFont_wght.ttf);
 }
 
 @font-face {
-    font-family: "Host Grotesk";
-    src: url(./font/HostGrotesk-VariableFont_wght.ttf);
+    font-family: "DaVinci";
+    src: url(./font/TRJN\ DaVinci\ Text.ttf);
 }
 
 :root {
@@ -137,13 +137,14 @@ a {
     background: var(--base-200);
     overflow: hidden;
     pointer-events: none;
+    will-change: opacity, transform;
 }
 
 .scroll-track {
     display: flex;
     gap: 1.25rem;
     width: max-content;
-    animation: marquee 14s linear infinite;
+    animation: marquee 20s linear infinite;
 }
 
 .scroll-track span {
@@ -161,24 +162,100 @@ section {
     position: relative;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
     z-index: 1;
+    padding: 0 5rem;
 }
 
 .hero {
-    padding: 2.5rem 0;
+    padding: 5rem 8rem 5rem 5rem;
     margin-top: 200svh;
+    min-height: 50vh;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
 }
 
 .about {
-    height: 100svh;
+    min-height: 100svh;
+    padding: 5rem 8rem 5rem 5rem;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 
-.hero h1,
-.about h1 {
-    width: 50%;
+/* Hero Tagline */
+.hero-tagline {
+    margin-bottom: 0.8rem;
+    max-width: 300px;
+}
+
+.hero-tagline p {
+    font-family: "Host Grotesk", sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--base-200);
+    text-transform: none;
+}
+
+/* Text Styling */
+.hero-text,
+.about-text {
+    text-transform: none;
+    font-family: "Host Grotesk", sans-serif;
+    font-size: clamp(1.5rem, 3.5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    width: 55%;
+    max-width: 900px;
+    letter-spacing: -0.01em;
+}
+
+.hero-text p,
+.about-text p {
+    margin: 0;
+}
+
+/* Highlight (Italic DaVinci Text with Blue Box) */
+.highlight {
+    font-family: "DaVinci", serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.05em;
+    color: transparent;
+    padding: 0.1em 0.4em;
+    display: inline;
+    position: relative;
+    line-height: 1.15;
+}
+
+/* Gray underlay (first swipe) */
+.highlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #979797;
+    transform: scaleX(0);
+    transform-origin: left;
+    z-index: -2;
+}
+
+/* Blue overlay (second swipe) */
+.highlight::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--base-200);
+    transform: scaleX(0);
+    transform-origin: left;
+    z-index: -1;
 }
 
 /* MARQUEE ANIMATION */
@@ -186,6 +263,7 @@ section {
     from {
         transform: translateX(0);
     }
+
     to {
         transform: translateX(-50%);
     }
@@ -193,6 +271,7 @@ section {
 
 /* MOBILE */
 @media (max-width: 720px) {
+
     .navbar-background,
     .navbar-items {
         min-width: 100%;
@@ -219,14 +298,24 @@ section {
         transform: none;
     }
 
-    .hero {
-        height: 100svh;
-        margin-top: 0;
+    section {
+        padding: 2rem !important;
     }
 
-    .hero h1,
-    .about h1 {
-        padding: 2.5rem;
+    .hero {
+        min-height: auto;
+        margin-top: 0;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-text,
+    .about-text {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
         width: 100%;
+    }
+
+    .highlight {
+        white-space: normal;
     }
 }
