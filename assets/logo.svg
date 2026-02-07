@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 150" width="760" height="150">
+  <!-- NKD Text -->
+  <text x="0" y="120" font-family="Arial Black, sans-serif" font-size="140" font-weight="900" fill="#0000FF" letter-spacing="-8">NKD</text>
+  
+  <!-- CITY Rectangle Background -->
+  <rect x="415" y="15" width="340" height="115" fill="#0000FF" rx="0"/>
+  
+  <!-- CITY Text -->
+  <text x="425" y="120" font-family="Arial Black, sans-serif" font-size="90" font-weight="900" fill="#FFFFFF" letter-spacing="5">CITY</text>
+</svg>
